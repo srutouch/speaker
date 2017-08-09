@@ -9,6 +9,7 @@ setup(
         'gunicorn',
         'flask',
         'pydub',
-        'SpeechRecognition'
+        'SpeechRecognition',
+        'requests'
     ],
 )
