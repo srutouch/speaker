@@ -1,0 +1,31 @@
+body            { font-family: sans-serif; background: #eee; }
+a, h1, h2       { color: #377BA8; }
+h1, h2          { font-family: 'Georgia', serif; margin: 0; }
+h1              { border-bottom: 2px solid #eee; }
+h2              { font-size: 1.2em; }
+
+.page           { margin: 2em auto; width: 35em; border: 5px solid #ccc;
+                  padding: 0.8em; background: white; }
+.profiles        { list-style: none; margin: 0; padding: 0; }
+.profiles li     { margin: 0.8em 1.2em; }
+.profiles li h2  { margin-left: -1em; }
+.metanav        { text-align: right; font-size: 0.8em; padding: 0.3em;
+                  margin-bottom: 1em; background: #fafafa; }
+.flash          { background: #CEE5F5; padding: 0.5em;
+                  border: 1px solid #AACBE2; }
+.error          { background: #F0D6D6; padding: 0.5em; }
+
+#.filebox label { display: inline-block; padding: .5em .75em; color: #999; font-size: inherit; line-height: normal; vertical-align: middle; background-color: #fdfdfd; cursor: pointer; border: 1px solid #ebebeb; border-bottom-color: #e2e2e2; border-radius: .25em; }
+#.filebox input[type="file"] { position: absolute; width: 1px; height: 1px; padding: .5em .75em; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+.filebox.bs3-success label {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  padding: .5em .75em;
+}
+.filebox.bs3-success input[type="file"] {
+  color: #fff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+  padding: .5em .75em;
+}

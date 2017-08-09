@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block body %}
+<ul>
+    <div class="filebox bs3-success">
+        <form action="/create" method="POST">
+            <label>신규 프로파일</label>
+            <input id="name" type="text" name="name" required>
+            <input type="submit" value="등록"/>
+        </form>
+    </div>
+</ul>
+<ul>
+    <div>
+        <p>고급 설정 (<a href="http://online-audio-converter.com/ko">온라인 변환툴</a>)</p>
+        <table>
+            <tr>
+                <th>Container</th>
+                <th>Encoding</th>
+                <th>Rate</th>
+                <th>Sample Format</th>
+                <th>Channels</th>
+            </tr>
+            <tr>
+                <td>WAV</td>
+                <td>PCM</td>
+                <td>16K</td>
+                <td>16 bit</td>
+                <td>Mono</td>
+            </tr>
+        </table>
+    </div>
+</ul>
+<ul>
+    <div class="filebox bs3-success">
+        <form action="/identify" enctype="multipart/form-data" method="POST">
+            <label>음성</label>
+            <input id="identifydata" type="file" accept="audio/*" name="identifydata" required>
+            <input id="identify" type="submit" value="누구야?"/>
+        </form>
+    </div>
+
+</ul>
+<ul class="profiles">
+    {% for profile in profiles %}
+    <li>
+    {% if profile.identificationProfileId == match_profile %}
+        <h2><strong style="color: red;">{{ profile.identificationName }} 너야^^</strong></h2>
+    {% else %}
+        <h2>{{ profile.identificationName }}</h2>
+    {% endif %}
+        {{ profile|safe }}
+    </li>
+    <button onclick="if(confirm('진짜로?'))window.location.href='/{{ profile.identificationProfileId }}/reset';return false">Reset Enrollment</button>
+    <button onclick="if(confirm('진짜로?'))window.location.href='/{{ profile.identificationProfileId }}/delete';return false">Delete</button>
+
+
+    <div class="filebox bs3-success">
+    <form action="/{{ profile.identificationProfileId }}/enroll" enctype="multipart/form-data" method="POST">
+        <label for="enrolldata_{{ profile.identificationProfileId }}">음성(10초이상)</label>
+        <input id="enrolldata_{{ profile.identificationProfileId }}" type="file" accept="audio/*" name="enrolldata_{{ profile.identificationProfileId }}" required>
+        <input id="enroll_{{ profile.identificationProfileId }}" type="submit" value="음성등록"/>
+    </form>
+    </div>
+    {% else %}
+    <li><em>등록된 프로파일이 없어~ 새로 등록해줘!!!</em></li>
+    {% endfor %}
+</ul>
+{% endblock %}

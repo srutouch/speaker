@@ -1,0 +1,11 @@
+/.settings
+/.classpath
+/.project
+/target
+.DS_Store
+/.gradle/
+/build/
+/bin/
+/**/*.mp3
+/**/*.wav
+/.idea
