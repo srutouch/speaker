@@ -1,1 +1,1 @@
-web gunicorn speaker.__init__:app
+web gunicorn speaker:app
